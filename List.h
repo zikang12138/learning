@@ -20,3 +20,16 @@ bool find_kth(LinkList L,int k）{
     cout<<q->data;
     return true;}
 }
+void delete_abs(LinkList &L,int n){
+  int *A=new int [n+1];
+  for(int i=0;i<=n;i++){
+    A[i]=0;}
+  LNode* p=L->next;
+  LNode* pre=L;
+  while(p!=nullptr){
+    if(A[abs(p->data]){
+      LNode* t=new LNode;
+      pre->next=p->next;
+      t=p;
+      delete t;
+      p=pre->
