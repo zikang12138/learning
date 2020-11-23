@@ -29,7 +29,7 @@ void delete_abs(LinkList &L,int n){
   while(p!=nullptr){
     if(A[abs(p->data]){//若该绝对值已经出现过 则删去
       LNode* t=new LNode;
-      pre->next=p->next;
+      pre->next=p->next;//将p的前一个指针指向p的下一个指针
       t=p;
       delete t;
       p=pre->next;
@@ -41,4 +41,10 @@ void delete_abs(LinkList &L,int n){
          }
          }
          }
-         
+void resort(LinkList L){
+  LNode* p=L;
+  LNode* q=L;
+  while(q->next!=nullptr){
+    
+  }
+}
