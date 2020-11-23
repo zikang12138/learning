@@ -27,9 +27,18 @@ void delete_abs(LinkList &L,int n){
   LNode* p=L->next;
   LNode* pre=L;
   while(p!=nullptr){
-    if(A[abs(p->data]){
+    if(A[abs(p->data]){//若该绝对值已经出现过 则删去
       LNode* t=new LNode;
       pre->next=p->next;
       t=p;
       delete t;
-      p=pre->
+      p=pre->next;
+    }
+         else{
+           A[abs(p->data)]=1;
+           p=p->next;
+           pre=pre->next;
+         }
+         }
+         }
+         
