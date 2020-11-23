@@ -42,7 +42,7 @@ void delete_abs(LinkList &L,int n){
          }
          }
          }
-void resort(LinkList L){
+void resort(LinkList &L){
   LNode* p=L;
   LNode* q=L;
   LNode* r=new LNode;
@@ -71,4 +71,16 @@ void resort(LinkList L){
     
   }
     
+}
+void reverse(LinkList &L){
+  LNode *p=L->next;
+  LNode *cur=L->next;
+  LNode *pre=nullptr;
+  while(p!=nullptr){
+    p=p->next;//先让p过桥
+    cur->next=pre;//拆桥
+    pre=cur;//让cur的前一个节点pre过桥到cur
+    cur=p;//再利用p让cur过桥
+  }
+  h->next=pre;
 }
