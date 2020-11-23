@@ -11,7 +11,7 @@ LinkList List_HeadInsert(){
   while(x!=9999){
     LNode* s=new LNode;
     s->data=x;
-    s->next=L->next;
+    s->next=L->next;//插在头节点之后
     L->next=s;
     cin>>x;
   }
@@ -20,16 +20,16 @@ LinkList List_HeadInsert(){
 LinkList List_TailInsert(){
   int x;
   LinkList L=new LNode;
-  LNOde* r=L;
+  LNOde* r=L;//r为队尾节点
   cin>>x;
   while(x!=9999){
     LNode* s=new LNode;
     s->data=x;
-    r->next=s;
-    r=s;
+    r->next=s;//在队尾节点后插入
+    r=s;//r指向新的队尾节点
     cin>>x;
   }
-  r->next=nullptr;
+  r->next=nullptr;//队尾指向空
   return L;
 }
 bool find_kth(LinkList L,int k）{
