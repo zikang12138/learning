@@ -46,6 +46,7 @@ void resort(LinkList L){
   LNode* p=L;
   LNode* q=L;
   LNode* r=new LNode;
+  LNode* s=new LNode;
   while(q->next!=nullptr){//寻找中间节点
     p=p->next;//p走一步 q走两步
     q=q->next;
@@ -54,7 +55,20 @@ void resort(LinkList L){
   q=p->next;//p为中间节点 q为后半链表的首节点
   p->next=nullptr;
   while(q!=nullptr){//将链表后半段逆置 实际上和头插法很像 只不过这次头节点为p了
+    r=q->next;
+    q->next=p->next;
+    p->next=q;
+    q=r;
+  }
+  s=L->next;//s是前半段第一个节点
+  q=p->next;//q是后半段第一个数据节点
+  while(q!=nullptr){
+    r=q->next;
+    q->next=s->next;
+    s->next=q;
+    s=q->next;
+    q=r;
     
   }
-  
+    
 }
