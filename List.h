@@ -3,7 +3,35 @@ typedef sturct LNode{//
   ElemType data;
   struct LNode *next;
 }LNode *LinkList;
-
+LinkList List_HeadInsert(){
+  LinkList L=new LNode;
+  L->next=nullptr;
+  int x;
+  cin>>x;
+  while(x!=9999){
+    LNode* s=new LNode;
+    s->data=x;
+    s->next=L->next;
+    L->next=s;
+    cin>>x;
+  }
+  return L;
+}
+LinkList List_TailInsert(){
+  int x;
+  LinkList L=new LNode;
+  LNOde* r=L;
+  cin>>x;
+  while(x!=9999){
+    LNode* s=new LNode;
+    s->data=x;
+    r->next=s;
+    r=s;
+    cin>>x;
+  }
+  r->next=nullptr;
+  return L;
+}
 bool find_kth(LinkList L,int k）{
   LNode* p=L->next;//p q都指示第一个节点
   LNode* q=L->next;
