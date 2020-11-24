@@ -51,7 +51,28 @@ int find_mid(int A[],int n,int B[]){
 	return A[alo]<B[blo]?A[alo]:B[blo];
 }
 int Majority(int A[].int n){
-	
+	int count=1;
+	int temp;
+	temp=A[0]
+	for(int i=1;i<n;i++){
+		if(A[i]==temp)
+			count++;
+		else
+		{
+			if(count>0)
+				count--;
+			else{
+				temp=A[i];
+				count=1
+			}
+		}
+	}
+	if(count>0)
+		for(i=count=0;i<n;i++)
+			if(A[i]==temp)
+				count++;
+	if(count>n/2) return temp;
+	else return -1;
 }
 void merge(int A[], int la,int B[],int lb ,int*C,int &lc) {
 	for (int i = 0, int j = 0, int k = 0; (j < lb)||(i<la);)
