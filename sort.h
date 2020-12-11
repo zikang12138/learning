@@ -78,15 +78,15 @@ void SelectSort(int A[], int n) {
 		if (min != i)swap(A[i], A[min]);
 	}
 }
-void HeadAdjust(int A[], int k, int n){
-	int temp = A[k];
-	for (int i=2*k+1; i < n; i=2*i+1)
+void HeadAdjust(int A[], int k, int n){//调整第k个节点及其子树 
+	int temp = A[k];//暂时记录父节点
+	for (int i=2*k+1; i < n; i=2*i+1)//让i指向k的左孩子
 	{
-		if (i<n-1&&A[i]<A[i+1])
+		if (i<n-1&&A[i]<A[i+1])//如果左孩子小于右孩子 则右孩子准备交换
 		{
 			i++;
 		}
-		if (temp >= A[i])break;
+		if (temp >= A[i])break;//如果孩子节点不让父亲大 则无事发生
 		else
 		{
 			A[k] = A[i];
@@ -96,7 +96,7 @@ void HeadAdjust(int A[], int k, int n){
 	A[k] = temp;
 }
 void BuildMaxHeap(int A[], int n) {
-	for (int i=n/2-1;i>=0 ;i--)
+	for (int i=n/2-1;i>=0 ;i--)//最靠下有孩子的节点开始
 	{
 		HeadAdjust(A, i, n);
 	}
@@ -109,4 +109,13 @@ void HeapSort(int A[], int n) {
 		HeadAdjust(A, 0, i );
 	}
 	
+}
+void AdjustUp(int A[], int& n, int e) {
+	int k = n;
+	while (k>=0&&A[(k-1)/2]<e)//父节点若小于e
+	{
+		A[k] = A[(k - 1) / 2];
+		k = (k - 1) / 2;//指向其父
+	}
+	A[k] = e;
 }
